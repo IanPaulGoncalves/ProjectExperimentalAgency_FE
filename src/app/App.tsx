@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
+import '../styles/style.css';
 
 function App() {
   return (
-    <div>
-      <span>Hello world!!!</span>
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <h1>Hello, guys!!!</h1>
     </div>
   );
 }
