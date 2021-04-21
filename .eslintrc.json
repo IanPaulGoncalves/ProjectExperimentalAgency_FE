@@ -42,7 +42,8 @@
       "linebreak-style": ["error", "windows"],
       "eol-last":"off",
       "no-useless-return":"off",
-      "no-multiple-empty-lines":"off"
+      "no-multiple-empty-lines":"off",
+      "strict":"off"
     },
     "settings": {
       "import/resolver": {
