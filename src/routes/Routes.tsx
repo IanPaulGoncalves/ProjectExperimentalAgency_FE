@@ -5,6 +5,7 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
+import SearchAutoComplete from '../pages/Ticket/SearchTicket';
 
 const isAuthenticated = true;
 
@@ -22,7 +23,7 @@ const Routes = () => (
   <>
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={() => <h1>Menu</h1>} />
+        <Route exact path="/" component={() => <SearchAutoComplete />} />
         <PrivateRoute path="/app" component={() => <h1>Logado</h1>} />
       </Switch>
     </BrowserRouter>

@@ -44,7 +44,8 @@
       "no-useless-return":"off",
       "no-multiple-empty-lines":"off",
       "strict":"off",
-      "react/destructuring-assignment": "off"
+      "react/destructuring-assignment": "off",
+      "react/jsx-props-no-spreading": "off"
     },
     "settings": {
       "import/resolver": {
