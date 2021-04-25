@@ -1,6 +1,7 @@
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import React from 'react';
+import Button from '../../components/Button/Button';
 import SearchAutoComplete from '../../components/Dropdown/SearchAutoComplete';
 
 function SearchTicket() {
@@ -13,6 +14,7 @@ function SearchTicket() {
       >
         <CardContent>
           <SearchAutoComplete />
+          <Button />
         </CardContent>
       </Card>
     </div>
