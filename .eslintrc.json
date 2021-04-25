@@ -43,7 +43,8 @@
       "eol-last":"off",
       "no-useless-return":"off",
       "no-multiple-empty-lines":"off",
-      "strict":"off"
+      "strict":"off",
+      "react/destructuring-assignment": "off"
     },
     "settings": {
       "import/resolver": {
