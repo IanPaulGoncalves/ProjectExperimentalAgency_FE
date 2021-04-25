@@ -1,10 +1,10 @@
 import React from 'react';
-import NavegationBar from '../components/Navegation/NavegationBar';
+import Routes from '../routes/Routes';
 import '../styles/style.css';
 
 function App() {
   return (
-    <NavegationBar />
+    <Routes />
   );
 }
 
