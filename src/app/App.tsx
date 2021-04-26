@@ -17,6 +17,9 @@ const useStyles = makeStyles({
     width: '1280px',
     margin: '0 auto',
     marginTop: '20px'
+  },
+  toolbar: {
+    minHeight: 64
   }
 });
 
@@ -25,6 +28,7 @@ function App() {
   return (
     <div className={classes.root}>
       <NavegationBar auth={isAuthenticated} />
+      <div className={classes.toolbar} />
       <main className={classes.main}>
         <Container maxWidth="lg">
           <Box>

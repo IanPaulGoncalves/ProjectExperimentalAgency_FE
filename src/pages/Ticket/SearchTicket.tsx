@@ -6,17 +6,22 @@ import SearchAutoComplete from '../../components/Dropdown/SearchAutoComplete';
 
 function SearchTicket() {
   return (
-    <div>
-      <span style={{ color: '#808080' }}>Faça a pesquisa da sua passagem</span>
-      <Card style={{
-        display: 'flex', justifyContent: 'center', width: '30%', marginTop: 10
-      }}
-      >
-        <CardContent>
-          <SearchAutoComplete />
-          <Button />
-        </CardContent>
-      </Card>
+    <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+      <div style={{ width: '30%' }}>
+        <span style={{ color: '#808080' }}>Faça a pesquisa da sua passagem</span>
+        <Card style={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginTop: 10
+        }}
+        >
+          <CardContent>
+            <SearchAutoComplete />
+            <SearchAutoComplete />
+            <Button />
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }

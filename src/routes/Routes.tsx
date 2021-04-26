@@ -20,14 +20,12 @@ const PrivateRoute = ({ component, ...rest }: any) => {
 };
 
 const Routes = () => (
-  <>
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/" component={() => <SearchAutoComplete />} />
-        <PrivateRoute path="/app" component={() => <h1>Logado</h1>} />
-      </Switch>
-    </BrowserRouter>
-  </>
+  <BrowserRouter>
+    <Switch>
+      <Route exact path="/" component={() => <SearchAutoComplete />} />
+      <PrivateRoute path="/app" component={() => <h1>Logado</h1>} />
+    </Switch>
+  </BrowserRouter>
 );
 
 export default Routes;
