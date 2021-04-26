@@ -14,7 +14,7 @@ const useStyles = makeStyles({
   main: {
     display: 'flex',
     height: '100vh',
-    width: '1280px',
+    width: '1366px',
     margin: '0 auto',
     marginTop: '20px'
   },
