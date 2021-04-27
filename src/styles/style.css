@@ -7,3 +7,30 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
 }
+
+.banner {
+  display: flex;
+  background-color: #b1b1b1;
+  height: 430px;
+  width: 100%;
+  margin-top: -20px;
+}
+
+.banner .back-search {
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  background: url('../assets/Banner/bannerBus.png');
+  background-repeat: no-repeat;
+  margin-top: 50px;
+  margin-left: 100px;
+}
+
+.banner .container {
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: auto;
+}

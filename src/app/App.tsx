@@ -1,4 +1,4 @@
-import { Box, Container, makeStyles } from '@material-ui/core';
+import { Box, makeStyles } from '@material-ui/core';
 import React from 'react';
 import NavegationBar from '../components/Navegation/NavegationBar';
 import Routes from '../routes/Routes';
@@ -20,6 +20,12 @@ const useStyles = makeStyles({
   },
   toolbar: {
     minHeight: 64
+  },
+  backSearch: {
+    position: 'absolute',
+    height: '400px',
+    width: '100%',
+    background: 'black'
   }
 });
 
@@ -30,11 +36,11 @@ function App() {
       <NavegationBar auth={isAuthenticated} />
       <div className={classes.toolbar} />
       <main className={classes.main}>
-        <Container maxWidth="lg">
+        <div className="container">
           <Box>
             <Routes />
           </Box>
-        </Container>
+        </div>
       </main>
     </div>
   );

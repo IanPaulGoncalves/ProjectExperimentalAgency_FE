@@ -2,7 +2,13 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import React from 'react';
 
-export default function SearchAutoComplete() {
+interface Props {
+  // eslint-disable-next-line react/require-default-props
+  label?: string;
+}
+
+
+export default function SearchAutoComplete(props: Props) {
   return (
     <div style={{ width: 300 }}>
       <Autocomplete
@@ -14,7 +20,7 @@ export default function SearchAutoComplete() {
         renderInput={params => (
           <TextField
             {...params}
-            label="Search input"
+            label={props.label || ''}
             margin="normal"
             variant="outlined"
             InputProps={{ ...params.InputProps, type: 'search' }}
