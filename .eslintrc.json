@@ -1,23 +1,23 @@
 {
     "env": {
-        "browser": true,
-        "es2021": true
+      "browser": true,
+      "es2021": true
     },
     "extends": [
-        "plugin:react/recommended",
-        "airbnb"
+      "plugin:react/recommended",
+      "airbnb"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "ecmaFeatures": {
-            "tsx": true
-        },
-        "ecmaVersion": 12,
-        "sourceType": "module"
+      "ecmaFeatures": {
+          "jsx": true
+      },
+      "ecmaVersion": 12,
+      "sourceType": "module"
     },
     "plugins": [
-        "react",
-        "@typescript-eslint"
+      "react",
+      "@typescript-eslint"
     ],
     "rules": {
       "quotes": [2, "single"],
@@ -39,11 +39,19 @@
       ],
       "arrow-parens": ["error", "as-needed"],
       "comma-dangle": ["error", "never"],
-      "linebreak-style": ["error", "windows"],
       "eol-last":"off",
       "no-useless-return":"off",
       "no-multiple-empty-lines":"off",
-      "strict":"off"
+      "strict":"off",
+      "react/destructuring-assignment": "off",
+      "react/jsx-props-no-spreading": "off",
+      "no-unused-vars":"off",
+      "no-debugger":"off",
+      "jsx-a11y/anchor-is-valid": 0,
+      "react/prop-types": 0,
+      "react/react-in-jsx-scope": "off",
+      "linebreak-style": 0,
+      "react/require-default-props": 0
     },
     "settings": {
       "import/resolver": {
