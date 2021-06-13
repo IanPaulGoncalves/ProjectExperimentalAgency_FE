@@ -65,10 +65,6 @@ function SearchTicket() {
     if (label === 'endDate') setValueState('endDate', date);
   };
 
-  //  border: 2px solid rgb(0 0 0 / 20%); */
-  //   border-radius: 10px;
-  //   box-shadow: 4px 5px 5px rgb(0 0 0 / 20%);
-
   return (
     <Box className={classes.container}>
       <Box style={{

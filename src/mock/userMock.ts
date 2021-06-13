@@ -1,27 +1,26 @@
 import mock from '../utils/mock';
+import { getUserValidation } from '../services/registerUserService';
+
+let user: any;
+const userAuth: any = localStorage.getItem('userAuth');
+const getUserAuth: any = JSON.parse(userAuth);
 
 mock.onPost('/api/home/me').reply(200, {
-  user: {
-    id: 1,
-    username: 'ianpaulo_ng',
-    email: 'ianpaulo@teste.com.br'
-  }
+  getUserAuth
 });
 
 mock.onPost('/api/home/login').reply(config => {
   const { email, password } = JSON.parse(config.data);
 
-  if (email !== 'ianpaulo@teste.com.br' || password !== '123456') {
+  const getUser = getUserValidation(email, password);
+
+  if (!getUser) {
     return [400, { message: 'E-mail ou senha incorretos' }];
   }
 
-  const user = {
-    id: 1,
-    username: 'ianpaulo_ng',
-    email: 'ianpaulo@teste.com.br'
-  };
+  user = localStorage.setItem('userAuth', JSON.stringify(getUser));
 
-  return [200, { user }];
+  return [200, { getUser }];
 });
 
 const post = [

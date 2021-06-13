@@ -9,13 +9,13 @@ function accountReducer(state = INITIAL_STATE, action) {
     case LOGIN_SUCESS: {
       return {
         ...state,
-        user: action.payload.user
+        user: action.payload.getUser
       };
     }
     case SILENT_LOGIN: {
       return {
         ...state,
-        user: action.payload.user
+        user: action.payload.getUserAuth
       };
     }
     default: {

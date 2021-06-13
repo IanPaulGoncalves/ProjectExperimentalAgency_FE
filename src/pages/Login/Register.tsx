@@ -19,7 +19,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { login } from '../../reducers/account/actions';
-import { getUserValidation, getUser } from '../../services/registerUserService';
+import { cadastrar } from '../../services/registerUserService';
+import { User } from '../../models/user';
 
 const useStyle = makeStyles({
   root: {
@@ -42,19 +43,16 @@ const useStyle = makeStyles({
     flexDirection: 'column'
   }
 });
-function Login() {
+function Register() {
   const classes = useStyle();
   const [showPassword, setPassword] = useState(false);
   const [showState, setState] = useState({
     email: { value: '', error: false },
     password: { value: '', showPassword: false, error: false },
+    confirmPassword: { value: '', showPassword: false, error: false },
     errorMessage: ''
   });
   const [open, setOpen] = React.useState(false);
-
-  const account = useAppSelector(state => state.account);
-
-  const dispatch = useAppDispatch();
 
   const handleClose = (event?: React.SyntheticEvent, reason?: string) => {
     if (reason === 'clickaway') {
@@ -79,6 +77,13 @@ function Login() {
     });
   }
 
+  function handleChangeConfirmPassword(event: any) {
+    const confirmPassword = event.target.value;
+    setValueState('confirmPassword', {
+      ...showState.confirmPassword, value: confirmPassword, showPassword: confirmPassword !== '' && true, error: false
+    });
+  }
+
   function handleChangeEmail(event: any) {
     const email = event.target.value;
     setValueState('email', { ...showState.email, value: email, error: false });
@@ -86,21 +91,22 @@ function Login() {
 
   const preventDefault = (event: React.SyntheticEvent) => event.preventDefault();
 
-  async function handleLogin() {
-    const users: any[] = getUser();
-    if (users.length > 0) {
-      if (validateError()) {
-        try {
-          await dispatch(login(showState.email.value, showState.password.value));
-          navigate('/');
-        } catch (error) {
-          setState({ ...showState, errorMessage: error.response.data.message });
-          setOpen(true);
-        }
-      }
-    } else {
-      setState({ ...showState, errorMessage: 'Você deve cadastrar pelo menos um usuário no sistema' });
-      setOpen(true);
+  function cadUser() {
+    const { email, password } = showState;
+
+    const cadastro: User = {
+      email: email.value,
+      password: password.value
+    };
+
+    return cadastro;
+  }
+
+  function handleLogin() {
+    if (validateError()) {
+      const cadastroUser = cadUser();
+      cadastrar(cadastroUser);
+      navigate('/login');
     }
   }
 
@@ -125,6 +131,15 @@ function Login() {
     }
     if (_.isEmpty(showState.password.value)) {
       setValueState('password', { ...showState.password, error: true });
+      validate = false;
+    }
+    if (_.isEmpty(showState.confirmPassword.value)) {
+      setValueState('confirmPassword', { ...showState.confirmPassword, error: true });
+      validate = false;
+    }
+    if (showState.password.value !== showState.confirmPassword.value) {
+      setValueState('password', { ...showState.password, error: true });
+      setValueState('confirmPassword', { ...showState.confirmPassword, error: true });
       validate = false;
     }
     return validate;
@@ -159,7 +174,7 @@ function Login() {
               fontWeight: 500
             }}
             >
-              Acessar
+              Registrar
             </span>
           </Grid>
           <Grid item xs={12}>
@@ -208,44 +223,39 @@ function Login() {
                 </FormControl>
               </Grid>
               <Grid item xs={12} md={12} lg={12} style={{ paddingTop: 10 }}>
+                <FormControl variant="outlined" fullWidth required error={showState.confirmPassword.error}>
+                  <InputLabel
+                    htmlFor="outlined-adornment-confirm-password"
+                  >
+                    Confirmar senha
+                  </InputLabel>
+                  <OutlinedInput
+                    id="outlined-adornment-confirm-password"
+                    type={showPassword ? 'text' : 'password'}
+                    onChange={handleChangeConfirmPassword}
+                    value={showState.confirmPassword.value}
+                    endAdornment={showState.confirmPassword.showPassword && (
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="toggle confirm password visibility"
+                          onClick={handleClickShowPassword}
+                          onMouseDown={handleMouseDownPassword}
+                          edge="end"
+                        >
+                          {showPassword ? <Visibility /> : <VisibilityOff />}
+                        </IconButton>
+                      </InputAdornment>
+                    )}
+                    labelWidth={140}
+                  />
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={12} lg={12} style={{ paddingTop: 10 }}>
                 <Button type="submit" fullWidth variant="contained" color="primary" onClick={handleLogin}>
-                  Entrar
+                  Registrar
                 </Button>
               </Grid>
             </form>
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            md={12}
-            lg={12}
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              paddingTop: 10
-            }}
-          >
-            <Link
-              style={{ fontSize: 14 }}
-              href="/forgot-password"
-            >
-              Esqueceu a senha?
-            </Link>
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            style={{
-              marginTop: 10,
-              marginBottom: 10
-            }}
-          >
-            <Divider />
-          </Grid>
-          <Grid item xs={12} md={12} lg={12} style={{ display: 'flex', justifyContent: 'center' }}>
-            <Button fullWidth variant="contained" color="secondary" onClick={() => navigate('/register')}>
-              Registrar-se
-            </Button>
           </Grid>
         </Grid>
       </Paper>
@@ -253,4 +263,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;
