@@ -5,11 +5,11 @@ export const SILENT_LOGIN = '@account/SILENT_LOGIN';
 
 export function login(email: string, password: string) {
   return async (dispatch: any) => {
-    const user = await loginAuth(email, password);
+    const getUser = await loginAuth(email, password);
     dispatch({
       type: LOGIN_SUCESS,
       payload: {
-        user
+        getUser
       }
     });
   };
@@ -17,11 +17,11 @@ export function login(email: string, password: string) {
 
 export function silentLogin() {
   return async (dispatch: any) => {
-    const user = await loginAuthToken();
+    const getUserAuth = await loginAuthToken();
     dispatch({
       type: SILENT_LOGIN,
       payload: {
-        user
+        getUserAuth
       }
     });
   };

@@ -1,4 +1,5 @@
 import axios from '../utils/axios';
+import { getUserValidation } from './registerUserService';
 
 export function setToken(token: any) {
   localStorage.setItem('accessToken', token);
@@ -22,9 +23,9 @@ export function loginAuth(email: string, password: string) {
     axios
       .post('/api/home/login', { email, password })
       .then(response => {
-        if (response.data.user) {
+        if (response.data.getUser) {
           setToken('JWT');
-          resolve(response.data.user);
+          resolve(response.data.getUser);
         } else {
           resolve(response.data.error);
         }
@@ -40,9 +41,9 @@ export function loginAuthToken() {
     axios
       .post('/api/home/me')
       .then(response => {
-        if (response.data.user) {
+        if (response.data.getUserAuth) {
           setToken('JWT');
-          resolve(response.data.user);
+          resolve(response.data.getUserAuth);
         } else {
           resolve(response.data.error);
         }

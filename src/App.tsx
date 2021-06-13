@@ -8,6 +8,7 @@ import Auth from './components/Auth/Auth';
 import './mock';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
+import Register from './pages/Login/Register';
 import PrivateRoute from './routes/PrivateRoute';
 import index from './store';
 import theme from './theme/index';
@@ -20,6 +21,7 @@ function App() {
           <Auth>
             <Routes>
               <PrivateRoute path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
               <Route path="//*" element={<Home />} />
             </Routes>
           </Auth>
