@@ -6,11 +6,12 @@ import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 export interface Props {
   startCity: string;
   endCity: string;
+  onAction: any;
 }
 
 function TicketComponent(props: Props) {
   return (
-    <Card style={{ width: '100%', padding: 10 }}>
+    <Card style={{ width: '100%', padding: 10, marginBottom: 10 }}>
       <Box display="flex" width="100%">
         <Box width="60px">
           <DirectionsBusIcon style={{ width: 60, height: 60 }} color="primary" />
@@ -54,6 +55,7 @@ function TicketComponent(props: Props) {
             <Button
               variant="contained"
               color="primary"
+              onClick={props.onAction}
             >
               Comprar
             </Button>

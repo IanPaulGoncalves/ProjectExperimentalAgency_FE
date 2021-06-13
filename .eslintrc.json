@@ -52,7 +52,8 @@
       "react/react-in-jsx-scope": "off",
       "linebreak-style": 0,
       "react/require-default-props": 0,
-      "import/no-extraneous-dependencies": ["error", {"devDependencies": false, "optionalDependencies": false, "peerDependencies": false}]
+      "import/no-extraneous-dependencies": ["error", {"devDependencies": false, "optionalDependencies": false, "peerDependencies": false}],
+      "no-plusplus": 0
     },
     "settings": {
       "import/resolver": {

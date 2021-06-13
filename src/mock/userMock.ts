@@ -1,12 +1,24 @@
 import mock from '../utils/mock';
 import { getUserValidation } from '../services/registerUserService';
+import { initialTickets, getTicket } from '../services/ticketService';
 
 let user: any;
 const userAuth: any = localStorage.getItem('userAuth');
 const getUserAuth: any = JSON.parse(userAuth);
 
+initialTickets();
+
 mock.onPost('/api/home/me').reply(200, {
   getUserAuth
+});
+
+mock.onGet('/api/home/tikets').reply(config => {
+  const getTickets = getTicket();
+  if (!getTickets) {
+    return [400, { message: 'Não foi possível encontrar passagens' }];
+  }
+
+  return [200, { getTickets }];
 });
 
 mock.onPost('/api/home/login').reply(config => {
