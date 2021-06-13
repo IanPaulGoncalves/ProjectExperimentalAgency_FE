@@ -28,19 +28,6 @@ const useStyles = makeStyles({
   }
 });
 
-// interface Props {
-//   image: string;
-//   name: string;
-//   time: string;
-//   question: string;
-//   description: string;
-//   comment: number;
-//   like: number;
-//   tag: Array<object>;
-//   onClick?: any;
-//   type?: string;
-// }
-
 function SearchTicket() {
   const classes = useStyles();
   const [showState, setState] = useState({
@@ -70,7 +57,8 @@ function SearchTicket() {
       <Box style={{
         display: 'flex',
         justifyContent: 'center',
-        width: '100%'
+        width: '100%',
+        marginBottom: 10
       }}
       >
         <Card>

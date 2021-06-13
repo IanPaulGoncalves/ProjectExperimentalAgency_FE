@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { getPost, getPostDetail } from '../../reducers/post/actions';
 import Modal from '../../components/Modal/Modal';
 import SearchTicket from '../Ticket/SearchTicket';
+import ResultTickets from '../Ticket/ResultTickets';
 
 const useStyles = makeStyles({
   root: {
@@ -72,6 +73,7 @@ function Feed() {
       </div>
       <div>
         <SearchTicket />
+        <ResultTickets />
       </div>
     </div>
   );
