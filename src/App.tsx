@@ -21,7 +21,7 @@ function App() {
           <Auth>
             <Routes>
               <PrivateRoute path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
+              <PrivateRoute path="/register" element={<Register />} />
               <Route path="//*" element={<Home />} />
             </Routes>
           </Auth>

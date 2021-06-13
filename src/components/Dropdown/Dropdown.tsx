@@ -5,10 +5,18 @@ import React from 'react';
 interface Props {
   // eslint-disable-next-line react/require-default-props
   label?: string;
+  options: any;
+  onChange: any;
 }
 
 
 export default function Dropdown(props: Props) {
+  function getOptions(options: any) {
+    if (options) {
+      return options.map(option => option.city);
+    }
+    return '';
+  }
   return (
     <div style={{ width: 300 }}>
       <Autocomplete
@@ -16,7 +24,8 @@ export default function Dropdown(props: Props) {
         size="small"
         id="free-solo-2-demo"
         disableClearable
-        options={cities.map(option => option.city)}
+        options={getOptions(props.options)}
+        onChange={(event, newValue) => props.onChange(newValue)}
         renderInput={params => (
           <TextField
             {...params}
@@ -30,12 +39,3 @@ export default function Dropdown(props: Props) {
     </div>
   );
 }
-
-const cities = [
-  { city: 'São Paulo', cityId: 1 },
-  { city: 'Vinhedo', cityId: 2 },
-  { city: 'Valinhos', cityId: 3 },
-  { city: 'Jundiaí', cityId: 4 },
-  { city: 'Campinas', cityId: 5 },
-  { city: 'Belo Horizonte', cityId: 6 }
-];

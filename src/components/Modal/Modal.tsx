@@ -31,6 +31,7 @@ export interface Props {
   open: boolean,
   title: string;
   container: any;
+  labelAction: string
 }
 
 export interface DialogTitleProps extends WithStyles<typeof styles> {
@@ -68,7 +69,7 @@ const DialogActions = withStyles((theme: Theme) => ({
   }
 }))(MuiDialogActions);
 
-export default function Modal(props: Props) {
+function Modal(props: Props) {
   return (
     <div id={props.id}>
       <Dialog onClose={props.onClose} aria-labelledby="customized-dialog-title" open={props.open}>
@@ -80,10 +81,12 @@ export default function Modal(props: Props) {
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={props.onClick} color="primary">
-            Salvar
+            {props.labelAction}
           </Button>
         </DialogActions>
       </Dialog>
     </div>
   );
 }
+
+export default Modal;
