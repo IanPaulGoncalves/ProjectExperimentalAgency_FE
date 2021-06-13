@@ -52,7 +52,7 @@ function Home() {
                     marginLeft: 10
                   }}
                   >
-                    <h1>Aqui ficaram as lugares mais pesquisados</h1>
+                    <h1>Aqui ficaram os lugares mais pesquisados</h1>
                   </div>
                 )}
               />
