@@ -13,6 +13,7 @@ export default function DropdownDate(props: { label: string; value: any; onChang
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Grid container justify="space-around">
         <KeyboardDatePicker
+          fullWidth
           disableToolbar
           variant="inline"
           format="MM/dd/yyyy"

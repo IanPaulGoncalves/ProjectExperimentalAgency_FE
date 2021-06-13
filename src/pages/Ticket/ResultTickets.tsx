@@ -132,7 +132,7 @@ function ResultTickets() {
           <TextField
             disabled
             id="id-start-city-modal-header"
-            label="Cidade de ida"
+            label="Origem"
             multiline
             rows={1}
             value={showState.startCity}
@@ -144,7 +144,7 @@ function ResultTickets() {
           <TextField
             disabled
             id="id-end-city-modal-header"
-            label="Cidade de volta"
+            label="Destino"
             multiline
             rows={1}
             value={showState.endCity}

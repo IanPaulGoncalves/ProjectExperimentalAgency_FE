@@ -67,79 +67,11 @@ function Feed() {
   const renderFeed = () => (
     <div className={classes.root}>
       <div>
-        <Typography style={{ color: '#9e9e9e' }} variant="h6" gutterBottom>
-          Pesquise por sua passagem:
-        </Typography>
-      </div>
-      <div>
         <SearchTicket />
         <ResultTickets />
       </div>
     </div>
   );
-
-  const test = [{
-    id: 7,
-    image: 'https://mixdeseries.com.br/wp-content/uploads/2018/07/will-smith-4-e1534947669898.jpg',
-    name: 'Ian Paulo',
-    time: '20:00',
-    question: 'Aqui vai ficar a pergunda. Aqui vai ficar a pergunda? (Ian teste)',
-    description: 'Descrição da pergunta feita por Ian Paulo. Descrição da pergunta. Descrição da pergunta. Descrição da pergunta.',
-    likes: 65,
-    comment: 20,
-    tags: [
-      {
-        id: 1,
-        tag: '#Java',
-        link: 'java'
-      },
-      {
-        id: 2,
-        tag: '#Python',
-        link: 'python'
-      },
-      {
-        id: 3,
-        tag: '#Ruby',
-        link: 'ruby'
-      }
-    ]
-  }];
-
-  function handleChangeDescription() {
-    setValueState('test', test);
-  }
-
-  // const containerModal = () => (
-  //   <Grid container spacing={2}>
-  //     {postState.postFilter !== undefined && [showState.test,
-  // ...postState.postFilter].map(item => {
-  //       const myTags: any = item.tags !== undefined ? item.tags.map(tags => tags) : [];
-  //       return (
-  //         <PostCard />
-  //       );
-  //     })}
-  //     {authenticated && (
-  //       <Grid item xs={12} md={12} lg={12}>
-  //         <TextField
-  //           id="id-description-modal-feed"
-  //           label="Responder"
-  //           onChange={handleChangeDescription}
-  //           multiline
-  //           rows={4}
-  //           variant="outlined"
-  //           fullWidth
-  //         />
-  //       </Grid>
-  //     )}
-  //     <Grid item xs={12} md={12} lg={12}>
-  //       <div>
-  //         <span>Repostas:</span>
-  //       </div>
-  //     </Grid>
-  //   </Grid>
-  // );
-
 
   return (
     <>

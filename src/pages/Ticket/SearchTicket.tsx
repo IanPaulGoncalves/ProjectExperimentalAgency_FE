@@ -10,8 +10,10 @@ import {
   FormControlLabel,
   Radio,
   Button,
-  Box
+  Box,
+  Typography
 } from '@material-ui/core';
+import SearchIcon from '@material-ui/icons/Search';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Dropdown from '../../components/Dropdown/Dropdown';
@@ -64,39 +66,24 @@ function SearchTicket() {
         <Card>
           <CardContent>
             <Box style={{ width: 300 }}>
+              <Typography style={{ color: '#9e9e9e' }} variant="h6" gutterBottom>
+                Pesquise por sua passagem:
+              </Typography>
+              <Box display="flex" flexGrow="1" justifyContent="center">
+                <SearchIcon style={{ width: 50, height: 50 }} color="primary" />
+              </Box>
               <Box>
                 <Dropdown label="Cidade de origem" />
                 <Dropdown label="Cidade de destino" />
               </Box>
               <Box display="flex">
-                <Box width="50%" marginRight="10px">
+                <Box flexGrow="1" marginBottom="10px">
                   <DropdownDate
-                    label="Data de ida"
+                    label="Data"
                     onChange={date => handleDateChange(date, 'startDate')}
                     value={showState.startDate}
                   />
                 </Box>
-                <Box width="50%">
-                  <DropdownDate
-                    label="Data de volta"
-                    onChange={date => handleDateChange(date, 'endDate')}
-                    value={showState.endDate}
-                  />
-                </Box>
-              </Box>
-              <Box>
-                <FormControl component="fieldset">
-                  <RadioGroup
-                    style={{ flexDirection: 'row' }}
-                    aria-label="gender"
-                    name="gender1"
-                    value={value}
-                    onChange={handleChange}
-                  >
-                    <FormControlLabel value="ida" control={<Radio />} label="Somente ida" />
-                    <FormControlLabel value="volta" control={<Radio />} label="Somente volta" />
-                  </RadioGroup>
-                </FormControl>
               </Box>
               <Box marginTop="5px">
                 <Button
