@@ -19,7 +19,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { login } from '../../reducers/account/actions';
-import { getUserValidation, getUser } from '../../services/registerUserService';
+import { getUser } from '../../services/registerUserService';
 
 const useStyle = makeStyles({
   root: {

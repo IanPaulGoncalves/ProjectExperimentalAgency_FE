@@ -237,9 +237,18 @@ function ResultTickets() {
             {showState.errorMessage}
           </Alert>
         </Snackbar>
-        {ticket.tickets !== undefined
+        {ticket.ticketsFilter === undefined && ticket.tickets !== undefined
           && ticket.tickets.length > 0
           && ticket.tickets.map(item => (
+            <TicketComponent
+              startCity={item.startCity}
+              endCity={item.endCity}
+              onAction={event => handleClickBuy(item.id)}
+            />
+          ))}
+        {ticket.ticketsFilter !== undefined && ticket.ticketsFilter !== undefined
+          && ticket.ticketsFilter.length > 0
+          && ticket.ticketsFilter.map(item => (
             <TicketComponent
               startCity={item.startCity}
               endCity={item.endCity}

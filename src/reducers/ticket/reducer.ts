@@ -1,7 +1,8 @@
-import { GET_TICKET_SUCESS } from './actions';
+import { GET_TICKET_SUCESS, GET_SEARCH_TICKET_SUCESS, RESET_TICKET } from './actions';
 
 const INITIAL_STATE = {
-  tickets: undefined
+  tickets: undefined,
+  ticketsFilter: undefined
 };
 
 function ticketReducer(state = INITIAL_STATE, action) {
@@ -12,6 +13,19 @@ function ticketReducer(state = INITIAL_STATE, action) {
         tickets: action.payload.getTickets
       };
     }
+    case GET_SEARCH_TICKET_SUCESS: {
+      debugger;
+      return {
+        ...state,
+        tickets: INITIAL_STATE.tickets,
+        ticketsFilter: action.payload.getTickets
+      };
+    }
+    // case RESET_TICKET: {
+    //   return {
+    //     tickets: INITIAL_STATE.tickets
+    //   };
+    // }
     default: {
       return state;
     }

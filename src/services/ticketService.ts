@@ -43,6 +43,62 @@ export function initialTickets() {
       time: '19:00',
       seats: 30,
       price: '25,00'
+    },
+    {
+      id: 6,
+      startCity: 'Salvador',
+      endCity: 'Governador Valadares',
+      time: '19:00',
+      seats: 30,
+      price: '200,00'
+    },
+    {
+      id: 7,
+      startCity: 'Governador Valadares',
+      endCity: 'Salvador',
+      time: '19:00',
+      seats: 30,
+      price: '200,00'
+    },
+    {
+      id: 8,
+      startCity: 'Campinas',
+      endCity: 'Governador Valadares',
+      time: '19:00',
+      seats: 30,
+      price: '200,00'
+    },
+    {
+      id: 9,
+      startCity: 'Betim',
+      endCity: 'Belo Horizonte',
+      time: '19:00',
+      seats: 30,
+      price: '50,00'
+    },
+    {
+      id: 10,
+      startCity: 'Belo Horizonte',
+      endCity: 'Betim',
+      time: '19:00',
+      seats: 30,
+      price: '50,00'
+    },
+    {
+      id: 11,
+      startCity: 'Jundiaí',
+      endCity: 'São Paulo',
+      time: '19:00',
+      seats: 30,
+      price: '20,00'
+    },
+    {
+      id: 12,
+      startCity: 'São Paulo',
+      endCity: 'Jundiaí',
+      time: '19:00',
+      seats: 30,
+      price: '20,00'
     }
   ];
 
@@ -74,6 +130,30 @@ export function getTicketsResult() {
 export function getTicketById(id: number) {
   const tickets: Ticket[] = getTicket();
   return tickets.find(ticket => ticket.id === id);
+}
+
+export function getSearchTicket(startCity: string, endCity: string) {
+  const tickets: Ticket[] = getTicket();
+  return tickets.filter(
+    (ticket: Ticket) => ticket.startCity === startCity && ticket.endCity === endCity
+  );
+}
+
+export function getSearchTicketsResult(startCity: string, endCity: string) {
+  return new Promise((resolve, reject) => {
+    axios
+      .post('/api/home/searchticket', { startCity, endCity })
+      .then(response => {
+        if (response.data.getTickets) {
+          resolve(response.data.getTickets);
+        } else {
+          resolve(response.data.error);
+        }
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
 }
 
 // export function cadastrar(user: Ticket) {

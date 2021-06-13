@@ -52,11 +52,22 @@ function Home() {
                     marginLeft: 10
                   }}
                   >
-                    <h1>Aqui ficaram as tags</h1>
+                    <h1>Aqui ficaram as lugares mais pesquisados</h1>
                   </div>
                 )}
               />
-              <Route path="*" element={<h1>Página não encontrada :(</h1>} />
+              <Route
+                path="*"
+                element={(
+                  <div style={{
+                    width: '75%',
+                    marginLeft: 10
+                  }}
+                  >
+                    <h1>Página não encontrada :(</h1>
+                  </div>
+                )}
+              />
             </Routes>
           </Box>
         </Container>
